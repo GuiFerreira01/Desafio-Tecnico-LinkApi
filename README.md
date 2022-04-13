@@ -62,6 +62,14 @@ Para executar este projeto, você precisa do [Git](https://git-scm.com/) e do [N
     $ npm install
 ```
 
+* No arquivo .env.exemple, esta o exemplo de como se deve criar o arquivo .env, com a variavel de ambiente.
+
+```bash
+    # Variavel de ambinete
+    $ HOEST = 
+```
+
+
 * No terminal, use o comando `npm start` para permitir que o projeto seja executado.
 
 ```bash
