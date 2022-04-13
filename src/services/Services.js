@@ -54,7 +54,7 @@ class Services {
                         })
                 }
 
-                await sleep(1100)
+                await sleep(2000)
                 constructResponse.push(constructor)
             }
 
