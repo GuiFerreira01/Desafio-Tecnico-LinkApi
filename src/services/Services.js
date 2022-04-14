@@ -13,7 +13,6 @@ class Services {
         for (const user of users) {
 
             await sleep(1000)
-            console.log(user.id)
             const searchAddresses = await ConnectMock.listAddresses(user.id)
             const searchContacts = await ConnectMock.listContacts(user.id)
 
