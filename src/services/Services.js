@@ -1,70 +1,55 @@
 const ConnectMock = require('./connectAPI')
 
-class Services {
-
-    async searchUser() {
-        var saveList = []
-
-        const searchUsers = await ConnectMock.listUsers(1)
-            .then(async response => {
-                saveList.push(await this.constructResponse(response))
-            })
-        return saveList
-    }
-
-    async constructResponse(data) {
-
-        function sleep(ms) {
-            return new Promise((resolve) => setTimeout(resolve, ms))
-        }
-
-        try {
-            const constructResponse = []
-            for (var users of data) {
-
-                console.log(users.id)
-                const searchAddress = await ConnectMock.listAddress(users.id)
-                const searchContact = await ConnectMock.listContact(users.id)
-
-                const constructor = {
-                    "id": users.id,
-                    "createdAt": users.createdAt,
-                    "fullName": users.firstName + "" + users.lastName,
-                    "email": users.email,
-                    "addresses":
-                        await searchAddress.map((address) => {
-                            return {
-                                "addressId": address.id,
-                                "address": address.street + address.number,
-                                "country": address.country,
-                                "countryCode": address.zipcode, // Não encontri o countryCode na MockAPI. 
-                                "city": address.city,
-                                "state": address.state,
-                                "zipcode": address.zipcode
-                            }
-                        }),
-                    "contacts":
-                        searchContact.map((contact) => {
-                            return {
-                                "contactId": contact.id,
-                                "name": contact.name,
-                                "phoneNumber": contact.phoneNumber,
-                                "email": contact.email
-                            }
-                        })
-                }
-
-                await sleep(1100)
-                constructResponse.push(constructor)
-            }
-
-            return constructResponse
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+class Services {
+    async searchUsers() {
+        const users = await ConnectMock.listUsers();
+
+        const constructResponse = []
+
+        for (const user of users) {
+
+            await sleep(1000)
+            console.log(user.id)
+            const searchAddresses = await ConnectMock.listAddresses(user.id)
+            const searchContacts = await ConnectMock.listContacts(user.id)
+
+            const formattedUser = {
+                "id": user.id,
+                "createdAt": user.createdAt,
+                "fullName": user.firstName + "" + user.lastName,
+                "email": user.email,
+                "addresses":
+                    searchAddresses.map((address) => {
+                        return {
+                            "addressId": address.id,
+                            "address": address.street + address.number,
+                            "country": address.country,
+                            "countryCode": address.zipcode, // Não encontrei o countryCode na MockAPI. 
+                            "city": address.city,
+                            "state": address.state,
+                            "zipcode": address.zipcode
+                        }
+                    }),
+                "contacts":
+                    searchContacts.map((contact) => {
+                        return {
+                            "contactId": contact.id,
+                            "name": contact.name,
+                            "phoneNumber": contact.phoneNumber,
+                            "email": contact.email
+                        }
+                    })
+            }
+
+            constructResponse.push(formattedUser)
+        }
+
+        return constructResponse
+    }
+}
 
 module.exports = new Services();

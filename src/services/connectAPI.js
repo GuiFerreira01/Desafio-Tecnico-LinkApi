@@ -9,30 +9,23 @@ class ConnectMock {
       })
   };
 
-  async listUsers(data) {
-    try {
-      const requestConfig = {
-        method: 'get',
-        url: '/users',
-        params: {
-          page: data,
-          limit: 100
-        }
-      };
+  async listUsers() {
+    const requestConfig = {
+      method: 'get',
+      url: '/users',
+      params: {
+        page: 1,
+        limit: 100
+      }
+    };
 
-      const UsersResponse = await this.axiosInstance.request(requestConfig)
-      const listUsers = UsersResponse.data;
+    const UsersResponse = await this.axiosInstance.request(requestConfig)
+    const listUsers = UsersResponse.data;
 
-      
-
-      return listUsers;
-    } catch (error) {
-      return error
-    }
+    return listUsers;
   }
 
-  async listAddress(data) {
-    try {
+  async listAddresses(data) {
       const requestConfig = {
         method: 'get',
         url: `/users/${data}/address`,
@@ -42,13 +35,9 @@ class ConnectMock {
       const listAddress = AddressResponse.data;
 
       return listAddress;
-
-    } catch (error) {
-      return error
-    }
   }
-  async listContact(data) {
-    try {
+
+  async listContacts(data) {
       const requestConfig = {
         method: 'get',
         url: `/users/${data}/contacts`,
@@ -58,12 +47,7 @@ class ConnectMock {
 
       const listContact = ContactResponse.data;
 
-
       return listContact;
-
-    } catch (error) {
-      return error
-    }
   }
 }
 
