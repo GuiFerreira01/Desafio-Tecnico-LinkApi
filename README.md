@@ -53,7 +53,7 @@ Para executar este projeto, você precisa do [Git](https://git-scm.com/) e do [N
 
 ```bash
     # Alterando o diretório no terminal/CMD
-    $ cd my-class
+    $ cd Desafio-Tecnico-LinkApi
 ```
 * Em seguida, instale todas as dependências usando o comando `npm install`.
 
