@@ -66,7 +66,7 @@ Para executar este projeto, você precisa do [Git](https://git-scm.com/) e do [N
 
 ```bash
     # Variavel de ambinete
-    $ HOEST = 
+    $ HOST = 
 ```
 
 
