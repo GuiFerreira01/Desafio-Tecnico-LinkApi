@@ -94,6 +94,6 @@ Para executar este projeto, você precisa do [Git](https://git-scm.com/) e do [N
 Feito com ❤️ por **Guilherme S. Ferreira**
 
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme--ferreira/)](https://www.linkedin.com/in/guilherme--ferreira/)
-[![Gmail Badge](https://img.shields.io/badge/-guilherme04ferreira03@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:guilherme04ferreira03@gmail.com)](mailto:g.dotnot@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-guilherme04ferreira03@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:guilherme04ferreira03@gmail.com)](mailto:guilherme-ferreira1953@hotmail.com)
 ---
 
